@@ -8,12 +8,14 @@ const Container = styled.div`
   overflow: hidden;
 `;
 
-const Title = styled.h1`
+const Title = styled.div`
+  font-size: 40px;
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   padding: 0;
-  color: #d34f49;
+  color: #5f22bb;
   font-weight: bold;
+  margin-left: 40%;
 `;
 
 const MainPage: React.FC = () => {

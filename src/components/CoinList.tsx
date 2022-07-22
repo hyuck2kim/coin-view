@@ -23,13 +23,22 @@ const ListItem = styled.li`
 `;
 
 const Name = styled.p`
+  display: flex;
   margin: 5px;
   padding: 0 0 0 12px;
-  flex: 1 1 100%;
   color: #374151;
   text-transform: capitalize;
   font-size: 16px;
   font-weight: bold;
+`;
+
+const MarketCode = styled.p`
+  display: flex;
+  margin: 5px;
+  color: #374151;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 5%;
 `;
 
 interface CoinInfo {
@@ -48,15 +57,11 @@ export const CoinList: React.FC = () => {
     const response = await axiosInstance.get("/market/all");
     setCoinList(response.data);
     setLoading(false);
-
-    console.log(response.data);
   };
 
   useEffect(() => {
     getCoinInfoList();
   }, []);
-
-  if (loading) return <div>Loading</div>;
 
   return (
     <div>
@@ -71,6 +76,7 @@ export const CoinList: React.FC = () => {
                   {coin.korean_name}
                   <br />({coin.english_name})
                 </Name>
+                <MarketCode>{coin.market}</MarketCode>
               </ListItem>
             ))}
         </List>
